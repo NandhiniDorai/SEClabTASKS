@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Find Maximum in an Array</title>
+</head>
+<body>
+  <h2>Task 3: Find Maximum in an Array</h2>
+  <p>Enter numbers separated by commas (e.g., 10,25,3,7,89,14):</p>
+
+  <input type="text" id="arrayInput" placeholder="Enter numbers">
+  <button onclick="findMax()">Find Maximum</button>
+
+  <p id="result"></p>
+
+  <script>
+    function findMax() {
+      let input = document.getElementById("arrayInput").value;
+
+      if (input === "") {
+        document.getElementById("result").innerText = "Please enter numbers.";
+        return;
+      }
+
+      // Split input into array and convert to numbers
+      let arr = input.split(",").map(Number);
+
+      // Check for invalid inputs
+      if (arr.some(isNaN)) {
+        document.getElementById("result").innerText = "Please enter valid numbers separated by commas.";
+        return;
+      }
+
+      // Find the maximum number
+      let max = Math.max(...arr);
+      document.getElementById("result").innerText = "Maximum number: " + max;
+    }
+  </script>
+</body>
+</html>
