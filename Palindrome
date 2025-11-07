@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Palindrome Checker</title>
+</head>
+<body>
+  <h2>Task 6: Palindrome Checker</h2>
+  <p>Enter a word or phrase to check if it's a palindrome:</p>
+
+  <input type="text" id="textInput" placeholder="Enter text">
+  <button onclick="checkPalindrome()">Check</button>
+
+  <p id="result"></p>
+
+  <script>
+    function checkPalindrome() {
+      let str = document.getElementById("textInput").value;
+
+      if (str === "") {
+        document.getElementById("result").innerText = "Please enter a word or phrase.";
+        return;
+      }
+
+      // Remove spaces and convert to lowercase for accurate checking
+      let cleaned = str.replace(/\s+/g, '').toLowerCase();
+      let reversed = cleaned.split("").reverse().join("");
+
+      if (cleaned === reversed) {
+        document.getElementById("result").innerText = `"${str}" is a Palindrome.`;
+      } else {
+        document.getElementById("result").innerText = `"${str}" is NOT a Palindrome.`;
+      }
+    }
+  </script>
+</body>
+</html>
